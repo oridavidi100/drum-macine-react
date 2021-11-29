@@ -1,7 +1,11 @@
 import React from 'react';
-
-function app() {
-  return <div>hi drum</div>;
+import Machine from './Machine';
+function App() {
+  return (
+    <div id='drum-machine'>
+      <Machine />
+    </div>
+  );
 }
 
-export default app;
+export default App;
