@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Click from './Click';
 function Machine() {
+  const [playOne, setplayOne] = useState();
+  const [text, setText] = useState();
+  const playMusic = () => {
+    playOne.play();
+  };
+  document.addEventListener('keydown', (e) => {
+    // console.log(props.keyTrigger);
+    console.log(e.key.toUpperCase());
+    for (let key of bankOne) {
+      if (key.keyTrigger === e.key.toUpperCase()) {
+        setplayOne(key.keyTrigger);
+        return console.log(key.id), playOne.play();
+      }
+    }
+  });
   return (
     <div id='display'>
       {bankOne.map((one) => (
-        <Click one={one} />
+        <Click one={one} setText={setText} playMusic={playMusic} setplayOne={setplayOne} />
       ))}
+      {text}
     </div>
   );
 }
